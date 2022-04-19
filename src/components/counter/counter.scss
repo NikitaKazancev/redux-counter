@@ -1,0 +1,33 @@
+.counter {
+	align-self: end;
+	font-size: 150px;
+	color: rgb(30, 30, 30);
+
+	&__btns {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 20px;
+
+		> button {
+			font-size: 20px;
+			font-weight: 700;
+			padding: 10px;
+			width: 100px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0 0 4px black;
+			background-color: rgba(255, 235, 205, 0.824);
+			cursor: pointer;
+			transition: all 0.3s;
+
+			&:hover {
+				background-color: rgb(252, 241, 227);
+				box-shadow: 0 0 1px black;
+			}
+
+			&:active {
+				box-shadow: inset 0 0 5px black;
+			}
+		}
+	}
+}

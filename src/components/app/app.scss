@@ -1,0 +1,11 @@
+.app {
+	height: 100%;
+	width: 100%;
+	background-color: rgba(132, 187, 122, 0.824);
+	border-radius: 20px;
+	display: grid;
+	justify-content: center;
+	justify-items: center;
+	align-items: center;
+	grid-template-rows: 1fr 1fr;
+}
