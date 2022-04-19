@@ -1,39 +1,29 @@
 import './counter.scss';
 
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { inc, dec, rnd } from '../../redux/actions';
 
-function Counter({ counter, inc, dec, rnd }) {
+export default function Counter() {
+	const counter = useSelector(({ counter }) => counter);
+	const dispatch = useDispatch();
+
 	return (
 		<>
 			<div className='counter'>{counter}</div>
 			<div className='counter__btns'>
-				<button className='counter__inc' onClick={inc}>
+				<button className='counter__inc' onClick={() => dispatch(inc())}>
 					INC
 				</button>
-				<button className='counter__dec' onClick={dec}>
+				<button className='counter__dec' onClick={() => dispatch(dec())}>
 					DEC
 				</button>
-				<button className='counter__rnd' onClick={() => rnd(100)}>
+				<button
+					className='counter__rnd'
+					onClick={edge => dispatch(rnd(100))}
+				>
 					RND
 				</button>
 			</div>
 		</>
 	);
 }
-
-////// Компонент Counter
-
-const mapStateToProps = ({ counter }) => {
-	return { counter };
-};
-
-const mapDispatchToProps = dispatch => {
-	return {
-		inc: () => dispatch(inc()),
-		dec: () => dispatch(dec()),
-		rnd: edge => dispatch(rnd(edge)),
-	};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
